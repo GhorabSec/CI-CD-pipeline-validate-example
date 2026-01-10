@@ -16,6 +16,6 @@ if (require.main === module) {
 
 
 
-   console.log(greet("Sobhy"));
+   console.log(greet("World"));
 
 }
