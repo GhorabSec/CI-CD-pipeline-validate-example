@@ -1,10 +1,21 @@
-on:
-    workflow_dispatch:
+name: Deploy App
 
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose environment (staging or production)"
+        required: true
+        default: "staging"
+        type: string  # must be string or boolean
 
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Deploy application
-              run: echo "Deploying the application ...."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show chosen environment
+        run: echo "Deploying to ${{ github.event.inputs.environment }}"
+
+      - name: Deploy application
+        run: echo "Deploying the application ...."
+
