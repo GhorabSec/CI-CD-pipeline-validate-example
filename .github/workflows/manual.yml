@@ -7,7 +7,10 @@ on:
         description: "Choose environment (staging or production)"
         required: true
         default: "staging"
-        type: string  # must be string or boolean
+        type: choice 
+        options:
+          - staging
+          - production 
 
 jobs:
   deploy:
